@@ -8,5 +8,7 @@ route.get('/user/:id',userController.getUserById);
 route.put('/user/:id',userController.updateUserById);
 route.delete('/user/:id',userController.deleteUserById);
 
+route.post('/user/login',userController.login);
+route.get('/user/confirmation/:token', userController.emailVerify);
 
 module.exports = route;

@@ -25,13 +25,20 @@ let host = process.env.PGHOST;
      /// requires modules
      db.user = require('../models/userModel')(sequelize, DataTypes);
      db.post = require('../models/postModel')(sequelize, DataTypes);
+     //db.Token = require('../models/Token')(sequelize, DataTypes);
     
      //Associations
+     // user and post
      db.user.hasMany(db.post,{foreignKey:'userId'});
      db.post.belongsTo(db.user,{foreignKey:'userId'});
+ 
+     // user and token
+    // db.user.hasOne(db.Token,{foreignKey:'userId'});
+    // db.Token.belongsTo( db.user,{foreignKey:'userId'});
+
 
      // sync all modules
-     db.sequelize.sync();
+     db.sequelize.sync({force:true});
       
       
   module.exports = db;

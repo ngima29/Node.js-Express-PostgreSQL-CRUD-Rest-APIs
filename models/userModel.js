@@ -22,7 +22,12 @@ const userModel = sequelize.define('userModel', {
     address: {
         type: DataTypes.STRING,
         allowNull: false
-      }
+      },
+     isVerifyEmail: {
+        type: DataTypes.BOOLEAN,
+        defaultValue:false
+      },
+
 },{ tableName:'users'});
 return userModel;
 }
